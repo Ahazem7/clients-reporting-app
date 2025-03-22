@@ -1,0 +1,398 @@
+2025-03-22 01:37:43,699 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 01:37:43,705 INFO [database.py:58] Database initialized successfully
+2025-03-22 01:40:32,312 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 01:40:32,312 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 01:40:32,325 INFO [database.py:58] Database initialized successfully
+2025-03-22 01:40:32,325 INFO [database.py:58] Database initialized successfully
+2025-03-22 01:42:22,315 ERROR [main.py:71] Error rendering page
+Traceback (most recent call last):
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\venv\Lib\site-packages\pandas\core\indexes\base.py", line 3791, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "index.pyx", line 152, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 181, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'client_name'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\app\main.py", line 68, in main
+    pages[selection]()
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\app\ui\pages\dashboard_page.py", line 92, in render_dashboard_page
+    client_counts = esg_df["client_name"].value_counts().reset_index()
+                    ~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\venv\Lib\site-packages\pandas\core\frame.py", line 3893, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\venv\Lib\site-packages\pandas\core\indexes\base.py", line 3798, in get_loc
+    raise KeyError(key) from err
+KeyError: 'client_name'
+2025-03-22 01:42:22,315 ERROR [main.py:71] Error rendering page
+Traceback (most recent call last):
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\venv\Lib\site-packages\pandas\core\indexes\base.py", line 3791, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "index.pyx", line 152, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 181, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'client_name'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\app\main.py", line 68, in main
+    pages[selection]()
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\app\ui\pages\dashboard_page.py", line 92, in render_dashboard_page
+    client_counts = esg_df["client_name"].value_counts().reset_index()
+                    ~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\venv\Lib\site-packages\pandas\core\frame.py", line 3893, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\venv\Lib\site-packages\pandas\core\indexes\base.py", line 3798, in get_loc
+    raise KeyError(key) from err
+KeyError: 'client_name'
+2025-03-22 01:46:25,297 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 01:46:25,297 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 01:46:25,297 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 01:46:25,303 INFO [database.py:58] Database initialized successfully
+2025-03-22 01:46:25,303 INFO [database.py:58] Database initialized successfully
+2025-03-22 01:46:25,303 INFO [database.py:58] Database initialized successfully
+2025-03-22 01:46:25,413 ERROR [main.py:71] Error rendering page
+Traceback (most recent call last):
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\venv\Lib\site-packages\pandas\core\indexes\base.py", line 3791, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "index.pyx", line 152, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 181, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'client_name'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\app\main.py", line 68, in main
+    pages[selection]()
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\app\ui\pages\dashboard_page.py", line 92, in render_dashboard_page
+    client_counts = esg_df["client_name"].value_counts().reset_index()
+                    ~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\venv\Lib\site-packages\pandas\core\frame.py", line 3893, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\venv\Lib\site-packages\pandas\core\indexes\base.py", line 3798, in get_loc
+    raise KeyError(key) from err
+KeyError: 'client_name'
+2025-03-22 01:46:25,413 ERROR [main.py:71] Error rendering page
+Traceback (most recent call last):
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\venv\Lib\site-packages\pandas\core\indexes\base.py", line 3791, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "index.pyx", line 152, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 181, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'client_name'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\app\main.py", line 68, in main
+    pages[selection]()
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\app\ui\pages\dashboard_page.py", line 92, in render_dashboard_page
+    client_counts = esg_df["client_name"].value_counts().reset_index()
+                    ~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\venv\Lib\site-packages\pandas\core\frame.py", line 3893, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\venv\Lib\site-packages\pandas\core\indexes\base.py", line 3798, in get_loc
+    raise KeyError(key) from err
+KeyError: 'client_name'
+2025-03-22 01:46:25,413 ERROR [main.py:71] Error rendering page
+Traceback (most recent call last):
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\venv\Lib\site-packages\pandas\core\indexes\base.py", line 3791, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "index.pyx", line 152, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 181, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'client_name'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\app\main.py", line 68, in main
+    pages[selection]()
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\app\ui\pages\dashboard_page.py", line 92, in render_dashboard_page
+    client_counts = esg_df["client_name"].value_counts().reset_index()
+                    ~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\venv\Lib\site-packages\pandas\core\frame.py", line 3893, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\venv\Lib\site-packages\pandas\core\indexes\base.py", line 3798, in get_loc
+    raise KeyError(key) from err
+KeyError: 'client_name'
+2025-03-22 01:47:52,017 ERROR [main.py:71] Error rendering page
+Traceback (most recent call last):
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\venv\Lib\site-packages\pandas\core\indexes\base.py", line 3791, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "index.pyx", line 152, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 181, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'client_name'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\app\main.py", line 68, in main
+    pages[selection]()
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\app\ui\pages\dashboard_page.py", line 92, in render_dashboard_page
+    client_counts = esg_df["client_name"].value_counts().reset_index()
+                    ~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\venv\Lib\site-packages\pandas\core\frame.py", line 3893, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\venv\Lib\site-packages\pandas\core\indexes\base.py", line 3798, in get_loc
+    raise KeyError(key) from err
+KeyError: 'client_name'
+2025-03-22 01:47:52,017 ERROR [main.py:71] Error rendering page
+Traceback (most recent call last):
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\venv\Lib\site-packages\pandas\core\indexes\base.py", line 3791, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "index.pyx", line 152, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 181, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'client_name'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\app\main.py", line 68, in main
+    pages[selection]()
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\app\ui\pages\dashboard_page.py", line 92, in render_dashboard_page
+    client_counts = esg_df["client_name"].value_counts().reset_index()
+                    ~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\venv\Lib\site-packages\pandas\core\frame.py", line 3893, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\venv\Lib\site-packages\pandas\core\indexes\base.py", line 3798, in get_loc
+    raise KeyError(key) from err
+KeyError: 'client_name'
+2025-03-22 01:47:52,017 ERROR [main.py:71] Error rendering page
+Traceback (most recent call last):
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\venv\Lib\site-packages\pandas\core\indexes\base.py", line 3791, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "index.pyx", line 152, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 181, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'client_name'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\app\main.py", line 68, in main
+    pages[selection]()
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\app\ui\pages\dashboard_page.py", line 92, in render_dashboard_page
+    client_counts = esg_df["client_name"].value_counts().reset_index()
+                    ~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\venv\Lib\site-packages\pandas\core\frame.py", line 3893, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\venv\Lib\site-packages\pandas\core\indexes\base.py", line 3798, in get_loc
+    raise KeyError(key) from err
+KeyError: 'client_name'
+2025-03-22 01:49:58,977 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 01:49:58,986 INFO [database.py:58] Database initialized successfully
+2025-03-22 01:52:04,023 ERROR [main.py:71] Error rendering page
+Traceback (most recent call last):
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\app\main.py", line 68, in main
+    pages[selection]()
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\app\ui\pages\edit_page.py", line 34, in render_edit_page
+    selected_rows = show_data_table(
+                    ^^^^^^^^^^^^^^^^
+TypeError: show_data_table() got an unexpected keyword argument 'selection_mode'
+2025-03-22 01:52:52,494 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 01:52:52,501 INFO [database.py:58] Database initialized successfully
+2025-03-22 01:53:02,357 ERROR [main.py:71] Error rendering page
+Traceback (most recent call last):
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\venv\Lib\site-packages\pandas\core\indexes\base.py", line 3791, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "index.pyx", line 152, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 181, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 0
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\app\main.py", line 68, in main
+    pages[selection]()
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\app\ui\pages\edit_page.py", line 42, in render_edit_page
+    record_id = df.iloc[selected_indices[0]].id
+                        ~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\venv\Lib\site-packages\pandas\core\frame.py", line 3893, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\venv\Lib\site-packages\pandas\core\indexes\base.py", line 3798, in get_loc
+    raise KeyError(key) from err
+KeyError: 0
+2025-03-22 01:54:04,238 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 01:54:04,244 INFO [database.py:58] Database initialized successfully
+2025-03-22 01:54:12,621 ERROR [main.py:71] Error rendering page
+Traceback (most recent call last):
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\venv\Lib\site-packages\pandas\core\indexes\base.py", line 3791, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "index.pyx", line 152, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 181, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 0
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\app\main.py", line 68, in main
+    pages[selection]()
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\app\ui\pages\edit_page.py", line 42, in render_edit_page
+    selected_index = selected_rows[0]
+                     ~~~~~~~~~~~~~^^^
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\venv\Lib\site-packages\pandas\core\frame.py", line 3893, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\venv\Lib\site-packages\pandas\core\indexes\base.py", line 3798, in get_loc
+    raise KeyError(key) from err
+KeyError: 0
+2025-03-22 01:55:52,387 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 01:55:52,398 INFO [database.py:58] Database initialized successfully
+2025-03-22 01:55:56,902 ERROR [main.py:71] Error rendering page
+Traceback (most recent call last):
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\venv\Lib\site-packages\pandas\core\indexes\base.py", line 3791, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "index.pyx", line 152, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 181, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 0
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\app\main.py", line 68, in main
+    pages[selection]()
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\app\ui\pages\edit_page.py", line 49, in render_edit_page
+    selected_index = selected_rows[0]
+                     ~~~~~~~~~~~~~^^^
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\venv\Lib\site-packages\pandas\core\frame.py", line 3893, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\venv\Lib\site-packages\pandas\core\indexes\base.py", line 3798, in get_loc
+    raise KeyError(key) from err
+KeyError: 0
+2025-03-22 01:56:51,677 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 01:56:51,683 INFO [database.py:58] Database initialized successfully
+2025-03-22 01:58:05,181 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 01:58:05,186 INFO [database.py:58] Database initialized successfully
+2025-03-22 02:02:02,726 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 02:02:02,734 INFO [database.py:58] Database initialized successfully
+2025-03-22 02:03:55,271 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 02:03:55,277 INFO [database.py:58] Database initialized successfully
+2025-03-22 02:05:54,691 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 02:05:54,695 INFO [database.py:58] Database initialized successfully
+2025-03-22 02:07:21,157 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 02:07:21,223 INFO [database.py:58] Database initialized successfully
+2025-03-22 02:38:48,681 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 02:38:48,695 INFO [database.py:58] Database initialized successfully
+2025-03-22 02:41:18,166 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 02:41:18,172 INFO [database.py:58] Database initialized successfully
+2025-03-22 02:44:36,479 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 02:44:36,485 INFO [database.py:58] Database initialized successfully
+2025-03-22 02:47:05,601 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 02:47:05,601 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 02:47:05,606 INFO [database.py:58] Database initialized successfully
+2025-03-22 02:47:05,606 INFO [database.py:58] Database initialized successfully
+2025-03-22 02:49:45,429 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 02:49:45,431 INFO [database.py:58] Database initialized successfully
+2025-03-22 02:50:52,534 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 02:50:52,534 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 02:50:52,534 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 02:50:52,548 INFO [database.py:58] Database initialized successfully
+2025-03-22 02:50:52,548 INFO [database.py:58] Database initialized successfully
+2025-03-22 02:50:52,548 INFO [database.py:58] Database initialized successfully
+2025-03-22 02:53:07,554 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 02:53:07,557 INFO [database.py:58] Database initialized successfully
+2025-03-22 02:54:09,351 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 02:54:09,359 INFO [database.py:58] Database initialized successfully
+2025-03-22 02:57:05,305 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 02:57:05,308 INFO [database.py:58] Database initialized successfully
+2025-03-22 02:57:33,425 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 02:57:33,425 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 02:57:33,430 INFO [database.py:58] Database initialized successfully
+2025-03-22 02:57:33,430 INFO [database.py:58] Database initialized successfully
+2025-03-22 03:06:59,058 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 03:06:59,061 INFO [database.py:58] Database initialized successfully
+2025-03-22 03:09:28,950 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 03:09:28,950 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 03:09:28,950 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 03:09:28,957 INFO [database.py:58] Database initialized successfully
+2025-03-22 03:09:28,957 INFO [database.py:58] Database initialized successfully
+2025-03-22 03:09:28,957 INFO [database.py:58] Database initialized successfully
+2025-03-22 03:12:14,025 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 03:12:14,025 INFO [database.py:58] Database initialized successfully
+2025-03-22 03:12:15,925 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 03:12:15,925 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 03:12:15,925 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 03:12:15,925 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 03:12:15,932 INFO [database.py:58] Database initialized successfully
+2025-03-22 03:12:15,932 INFO [database.py:58] Database initialized successfully
+2025-03-22 03:12:15,932 INFO [database.py:58] Database initialized successfully
+2025-03-22 03:12:15,932 INFO [database.py:58] Database initialized successfully
+2025-03-22 03:14:27,969 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 03:14:27,985 INFO [database.py:58] Database initialized successfully
+2025-03-22 03:25:04,125 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 03:25:04,129 INFO [database.py:58] Database initialized successfully
+2025-03-22 03:33:15,121 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 03:33:15,121 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 03:33:15,124 INFO [database.py:58] Database initialized successfully
+2025-03-22 03:33:15,124 INFO [database.py:58] Database initialized successfully
+2025-03-22 03:33:47,187 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 03:33:47,189 INFO [database.py:58] Database initialized successfully
+2025-03-22 03:34:53,851 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 03:34:53,857 INFO [database.py:58] Database initialized successfully
+2025-03-22 03:38:57,624 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 03:38:57,630 INFO [database.py:58] Database initialized successfully
+2025-03-22 03:40:58,047 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 03:40:58,051 INFO [database.py:76] Database initialized successfully
+2025-03-22 03:40:59,734 ERROR [main.py:68] Error rendering page
+Traceback (most recent call last):
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\app\main.py", line 65, in main
+    pages[selection]()
+  File "C:\Users\ahmed\OneDrive\Desktop\Projects\Clients Reporting App\app\ui\pages\dashboard_page.py", line 20, in render_dashboard_page
+    esg_data = esg_service.get_all_esg_data()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ESGService' object has no attribute 'get_all_esg_data'
+2025-03-22 03:42:57,540 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 03:42:57,545 INFO [database.py:76] Database initialized successfully
+2025-03-22 03:42:58,910 ERROR [shariah_service.py:25] Error retrieving Shariah data: Execution failed on sql 'SELECT * FROM shariah_data': no such table: shariah_data
+2025-03-22 03:51:37,005 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 03:51:37,005 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 03:51:37,011 INFO [database.py:79] Database initialized successfully
+2025-03-22 03:51:37,011 INFO [database.py:79] Database initialized successfully
+2025-03-22 03:51:37,049 ERROR [shariah_service.py:25] Error retrieving Shariah data: Execution failed on sql 'SELECT * FROM shariah_data': no such table: shariah_data
+2025-03-22 03:51:37,049 ERROR [shariah_service.py:25] Error retrieving Shariah data: Execution failed on sql 'SELECT * FROM shariah_data': no such table: shariah_data
+2025-03-22 03:51:38,923 ERROR [shariah_service.py:25] Error retrieving Shariah data: Execution failed on sql 'SELECT * FROM shariah_data': no such table: shariah_data
+2025-03-22 03:51:38,923 ERROR [shariah_service.py:25] Error retrieving Shariah data: Execution failed on sql 'SELECT * FROM shariah_data': no such table: shariah_data
+2025-03-22 03:52:25,562 INFO [logging_setup.py:39] Logging initialized
+2025-03-22 03:52:25,577 INFO [database.py:79] Database initialized successfully
