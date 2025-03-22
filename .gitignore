@@ -38,4 +38,10 @@ logs/
 
 # OS specific files
 .DS_Store
-Thumbs.db 
+Thumbs.db
+
+# Excel and other data files
+*.xlsx
+*.xls
+*.csv
+*.json 
