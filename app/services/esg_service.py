@@ -347,4 +347,15 @@ class ESGService:
             return self.repository.get_compliance_summary()
         except Exception as e:
             logger.error(f"Error getting ESG compliance summary: {str(e)}")
-            return {} 
+            return {}
+            
+    def bulk_import_esg_data(self, df: pd.DataFrame) -> Dict[str, Any]:
+        """Import ESG data from a DataFrame (bulk upload)
+        
+        Args:
+            df: DataFrame containing ESG data to import
+            
+        Returns:
+            Dictionary with results of the import operation
+        """
+        return self.import_esg_data_from_df(df) 

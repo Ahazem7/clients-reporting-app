@@ -361,4 +361,15 @@ class ShariahService:
             return self.repository.get_frequency_summary()
         except Exception as e:
             logger.error(f"Error getting Shariah frequency summary: {str(e)}")
-            return {} 
+            return {}
+            
+    def bulk_import_shariah_data(self, df: pd.DataFrame) -> Dict[str, Any]:
+        """Import Shariah data from a DataFrame (bulk upload)
+        
+        Args:
+            df: DataFrame containing Shariah data to import
+            
+        Returns:
+            Dictionary with results of the import operation
+        """
+        return self.import_shariah_data_from_df(df) 
