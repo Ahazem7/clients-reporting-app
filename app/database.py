@@ -88,22 +88,20 @@ def init_sample_data():
     """Initialize the database with sample data for demo purposes
     This is particularly useful for Streamlit Cloud deployment
     """
-    conn = get_connection()
-    cursor = conn.cursor()
-    
+    # This function now does nothing to prevent auto-populating tables
+    # It's kept for compatibility with existing code
+    logger = logging.getLogger(__name__)
+    logger.info("Sample data initialization is disabled")
+    return
+
+def load_sample_esg_data():
+    """
+    Manually load sample ESG data
+    """
+    logger = logging.getLogger(__name__)
     try:
-        # Check if ESG table is empty
-        cursor.execute(f"SELECT COUNT(*) FROM {Config.DB.ESG_TABLE}")
-        esg_count = cursor.fetchone()[0]
-        
-        # Check if Shariah table is empty
-        cursor.execute(f"SELECT COUNT(*) FROM {Config.DB.SHARIAH_TABLE}")
-        shariah_count = cursor.fetchone()[0]
-        
-        # If both tables have data, don't add sample data
-        if esg_count > 0 and shariah_count > 0:
-            logger.info("Database already contains data, skipping sample data initialization")
-            return
+        conn = get_connection()
+        cursor = conn.cursor()
         
         # Sample ESG data
         esg_data = [
@@ -119,13 +117,28 @@ def init_sample_data():
             ("GIB", "E,S,G", "Text", "FactSet", 0, 0, 0, "Pass")
         ]
         
-        # Only insert if ESG table is empty
-        if esg_count == 0:
-            cursor.executemany(f"""
-                INSERT INTO {Config.DB.ESG_TABLE} (client, fields, data_type, data_source, sedol_count, isin_count, cusip_count, compliance)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-            """, esg_data)
-            logger.info(f"Added {len(esg_data)} sample ESG records")
+        cursor.executemany(f"""
+            INSERT INTO {Config.DB.ESG_TABLE} (client, fields, data_type, data_source, sedol_count, isin_count, cusip_count, compliance)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        """, esg_data)
+        conn.commit()
+        logger.info(f"Added {len(esg_data)} sample ESG records")
+        
+    except sqlite3.Error as e:
+        logger.error(f"Error loading sample ESG data: {e}")
+        raise
+    finally:
+        if conn:
+            conn.close()
+
+def load_sample_shariah_data():
+    """
+    Manually load sample Shariah data
+    """
+    logger = logging.getLogger(__name__)
+    try:
+        conn = get_connection()
+        cursor = conn.cursor()
         
         # Sample Shariah data
         shariah_data = [
@@ -141,18 +154,15 @@ def init_sample_data():
             ("Arabesque", "Reuters", "", "Arabesque", "ISIN, SEDOL, Ticker, FIGI, Nation, Name", "Global", 36000, "Monthly", "", 10000, 10000, 10000)
         ]
         
-        # Only insert if Shariah table is empty
-        if shariah_count == 0:
-            cursor.executemany(f"""
-                INSERT INTO {Config.DB.SHARIAH_TABLE} (client, current_source, after_migration, delivery_name, fields, universe, universe_count, frequency, migration_plan, sedol_count, isin_count, cusip_count)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            """, shariah_data)
-            logger.info(f"Added {len(shariah_data)} sample Shariah records")
-            
+        cursor.executemany(f"""
+            INSERT INTO {Config.DB.SHARIAH_TABLE} (client, current_source, after_migration, delivery_name, fields, universe, universe_count, frequency, migration_plan, sedol_count, isin_count, cusip_count)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, shariah_data)
         conn.commit()
+        logger.info(f"Added {len(shariah_data)} sample Shariah records")
         
     except sqlite3.Error as e:
-        logger.error(f"Error initializing sample data: {e}")
+        logger.error(f"Error loading sample Shariah data: {e}")
         raise
     finally:
         if conn:
