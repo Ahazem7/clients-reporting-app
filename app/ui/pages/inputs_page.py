@@ -147,10 +147,7 @@ def render_inputs_page():
                             'migration_plan': migration_plan if migration_plan else None,
                             'sedol_count': sedol_count,
                             'isin_count': isin_count,
-                            'cusip_count': cusip_count,
-                            'data_type': '',  # Pass empty string for data_type 
-                            'data_source': '',  # Pass empty string for data_source
-                            'compliance': 'N/A'  # Default compliance value
+                            'cusip_count': cusip_count
                         }
                         
                         # Save to database

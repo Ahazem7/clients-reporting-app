@@ -131,24 +131,20 @@ class ShariahService:
             now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
             query = """
             INSERT INTO shariah_datafeed (
-                client, fields, data_type, data_source, 
-                sedol_count, isin_count, cusip_count, compliance,
-                frequency, current_source, after_migration, delivery_name,
-                universe, universe_count, migration_plan, 
-                created_at, updated_at
+                client, fields, sedol_count, isin_count, 
+                cusip_count, frequency, current_source,
+                after_migration, delivery_name, universe, 
+                universe_count, migration_plan, created_at, updated_at
             ) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """
             
             cursor.execute(query, (
                 shariah_data.get('client', ''),
                 shariah_data.get('fields', ''),
-                shariah_data.get('data_type', ''),
-                shariah_data.get('data_source', ''),
                 sedol_count,
                 isin_count,
                 cusip_count,
-                shariah_data.get('compliance', ''),
                 shariah_data.get('frequency', ''),
                 shariah_data.get('current_source', ''),
                 shariah_data.get('after_migration', ''),
