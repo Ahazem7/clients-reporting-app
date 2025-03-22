@@ -18,6 +18,7 @@ if not logger.handlers:
 from app.ui.pages.dashboard_page import render_dashboard_page
 from app.ui.pages.view_page import render_view_page
 from app.ui.pages.inputs_page import render_inputs_page
+from app.auth.auth import login_required, logout
 
 # Streamlit logging level
 logging.getLogger("streamlit").setLevel(logging.WARNING)
@@ -44,8 +45,13 @@ st.markdown("""
 def main():
     """Main application entry point"""
     
-    # Sidebar navigation
+    # Check if user is logged in, if not, show login form and exit
+    if not login_required():
+        return
+    
+    # Display welcome and logout option in sidebar
     st.sidebar.title("ESG & Shariah DataFeed")
+    st.sidebar.markdown(f"Welcome, **{st.session_state.username}**")
     
     # Navigation
     pages = {
@@ -57,8 +63,13 @@ def main():
     # Select page
     selection = st.sidebar.radio("Navigate", list(pages.keys()))
     
-    # Display divider only
+    # Display divider
     st.sidebar.divider()
+    
+    # Logout button
+    if st.sidebar.button("Logout", type="primary"):
+        logout()
+        st.rerun()
     
     # Render the selected page
     try:
