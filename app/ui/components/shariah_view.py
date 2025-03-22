@@ -206,8 +206,11 @@ def render_shariah_aggregated_view(service: Optional[ShariahService] = None):
     # Convert to DataFrame for display
     df = pd.DataFrame([d.to_dict() for d in aggregated_data])
     
+    # Debug: Show available columns
+    st.sidebar.info(f"Debug - Available columns: {', '.join(df.columns)}")
+    
     # Add filters to sidebar
-    filter_columns = ['client', 'universe', 'frequency', 'current_source']
+    filter_columns = ['client', 'universe', 'frequencies', 'sources']
     filtered_df = show_filter_sidebar(df, filter_columns, key_prefix="shariah_agg_view")
     
     # Display data
@@ -230,6 +233,24 @@ def render_shariah_aggregated_view(service: Optional[ShariahService] = None):
             
     # Universe count by client
     st.subheader("Universe Count by Client")
+    
+    # The aggregated data should have 'total_universe_count' based on the repository query
     if not df.empty:
-        universe_df = df[['client', 'universe_count']].sort_values('universe_count', ascending=False)
-        st.bar_chart(universe_df.set_index('client')) 
+        try:
+            if 'total_universe_count' in df.columns:
+                # Create a copy of the dataframe with just the columns we need
+                universe_df = df[['client', 'total_universe_count']].copy()
+                # Replace NaN values with 0
+                universe_df['total_universe_count'] = universe_df['total_universe_count'].fillna(0)
+                # Convert to int to avoid numerical issues
+                universe_df['total_universe_count'] = universe_df['total_universe_count'].astype(int)
+                # Sort by universe count
+                universe_df = universe_df.sort_values('total_universe_count', ascending=False)
+                # Display chart
+                st.bar_chart(universe_df.set_index('client'))
+            else:
+                st.info("Universe count data is not available in the aggregated view. Available columns: " + 
+                      ", ".join(df.columns))
+        except Exception as e:
+            st.error(f"Error displaying Universe Count chart: {str(e)}")
+            st.info("Exception details: " + str(e) + "\nDataFrame info: " + str(df.dtypes)) 
