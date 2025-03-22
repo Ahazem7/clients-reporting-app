@@ -31,12 +31,11 @@ def render_esg_data_view():
     with tab1:
         # Show filters in the sidebar when this tab is active
         filtered_data = esg_data
+        
+        # Track the current tab without resetting filters
         if "esg_tab" not in st.session_state or st.session_state["esg_tab"] != "view":
             st.session_state["esg_tab"] = "view"
-            # Reset filter state when switching to this tab
-            for key in list(st.session_state.keys()):
-                if key.startswith("filter_esg_"):
-                    del st.session_state[key]
+            # Don't reset filter state when switching to this tab
         
         # Add sidebar filters
         with st.sidebar:

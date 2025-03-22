@@ -31,17 +31,16 @@ def render_shariah_data_view():
     with tab1:
         # Show filters in the sidebar when this tab is active
         filtered_data = shariah_data
+        
+        # Track the current tab without resetting filters
         if "shariah_tab" not in st.session_state or st.session_state["shariah_tab"] != "view":
             st.session_state["shariah_tab"] = "view"
-            # Reset filter state when switching to this tab
-            for key in list(st.session_state.keys()):
-                if key.startswith("filter_shariah_"):
-                    del st.session_state[key]
+            # Don't reset filter state when switching to this tab
         
         # Add sidebar filters
         with st.sidebar:
             st.subheader("Filter Shariah Data")
-            filter_columns = ["client", "fields", "data_type", "data_source", "compliance", "frequency"]
+            filter_columns = ["client", "fields", "frequency", "current_source", "universe"]
             filtered_data = show_filter_sidebar(shariah_data, filter_columns, key_prefix="filter_shariah")
         
         # Show the filtered data table

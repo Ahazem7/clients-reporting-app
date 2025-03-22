@@ -164,33 +164,46 @@ def show_filter_sidebar(data: pd.DataFrame, columns: List[str], key_prefix: str 
     st.sidebar.markdown("## Filters")
     
     filtered_data = data.copy()
+    has_filters_applied = False
     
     for col in columns:
         if col in data.columns:
             unique_values = sorted(data[col].dropna().unique())
             
             if len(unique_values) > 1:
+                filter_key = f"{key_prefix}_{col}"
+                
                 if len(unique_values) <= 10:
                     # For columns with few unique values, use multiselect
                     selected_values = st.sidebar.multiselect(
                         f"Filter by {col}",
                         options=unique_values,
                         default=[],
-                        key=f"{key_prefix}_{col}"
+                        key=filter_key
                     )
                     
                     if selected_values:
+                        has_filters_applied = True
                         filtered_data = filtered_data[filtered_data[col].isin(selected_values)]
                 else:
                     # For columns with many unique values, use text input
                     filter_value = st.sidebar.text_input(
                         f"Filter by {col}",
                         "",
-                        key=f"{key_prefix}_{col}"
+                        key=filter_key
                     )
                     
                     if filter_value:
+                        has_filters_applied = True
                         filtered_data = filtered_data[filtered_data[col].astype(str).str.contains(filter_value, case=False)]
+    
+    # Add a button to clear all filters
+    if has_filters_applied and st.sidebar.button("Clear All Filters", key=f"{key_prefix}_clear_all"):
+        # Reset all filter widgets by clearing session state
+        for key in list(st.session_state.keys()):
+            if key.startswith(f"{key_prefix}_"):
+                del st.session_state[key]
+        st.experimental_rerun()
                         
     return filtered_data
     
