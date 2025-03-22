@@ -5,7 +5,8 @@ import os
 from datetime import datetime
 
 from app.database import get_connection
-from app.models.shariah_model import ShariahData
+from app.models.shariah_model import ShariahData, ShariahAggregatedData
+from app.repositories.shariah_repository import ShariahRepository
 
 logger = logging.getLogger(__name__)
 
@@ -105,7 +106,7 @@ class ShariahService:
     
     def __init__(self):
         """Initialize the Shariah service"""
-        pass
+        self.repository = ShariahRepository()
     
     def add_shariah_data(self, shariah_data: Dict[str, Any]) -> int:
         """Add new Shariah data to the database
@@ -325,4 +326,39 @@ class ShariahService:
                 "compliance_breakdown": {},
                 "source_breakdown": {},
                 "frequency_breakdown": {}
-            } 
+            }
+    
+    def get_aggregated_data(self) -> List[ShariahAggregatedData]:
+        """Get aggregated Shariah data by client
+        
+        Returns:
+            List of ShariahAggregatedData objects
+        """
+        try:
+            df = self.repository.get_aggregated_data()
+            
+            if df.empty:
+                return []
+                
+            # Convert DataFrame rows to ShariahAggregatedData objects
+            aggregated_data = []
+            for _, row in df.iterrows():
+                data_dict = row.to_dict()
+                aggregated_data.append(ShariahAggregatedData.from_dict(data_dict))
+                
+            return aggregated_data
+        except Exception as e:
+            logger.error(f"Error getting aggregated Shariah data: {str(e)}")
+            return []
+            
+    def get_frequency_summary(self) -> Dict[str, int]:
+        """Get a summary of frequency counts
+        
+        Returns:
+            Dict[str, int]: Counts by frequency
+        """
+        try:
+            return self.repository.get_frequency_summary()
+        except Exception as e:
+            logger.error(f"Error getting Shariah frequency summary: {str(e)}")
+            return {} 

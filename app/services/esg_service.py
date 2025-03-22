@@ -5,7 +5,8 @@ import os
 from datetime import datetime
 
 from app.database import get_connection
-from app.models.esg_model import ESGData
+from app.models.esg_model import ESGData, ESGAggregatedData
+from app.repositories.esg_repository import ESGRepository
 
 logger = logging.getLogger(__name__)
 
@@ -104,7 +105,7 @@ class ESGService:
     
     def __init__(self):
         """Initialize the ESG service"""
-        pass
+        self.repository = ESGRepository()
     
     def add_esg_data(self, esg_data: Dict[str, Any]) -> int:
         """Add new ESG data to the database
@@ -311,4 +312,39 @@ class ESGService:
                 "unique_clients": 0,
                 "compliance_breakdown": {},
                 "source_breakdown": {}
-            } 
+            }
+    
+    def get_aggregated_data(self) -> List[ESGAggregatedData]:
+        """Get aggregated ESG data by client
+        
+        Returns:
+            List of ESGAggregatedData objects
+        """
+        try:
+            df = self.repository.get_aggregated_data()
+            
+            if df.empty:
+                return []
+                
+            # Convert DataFrame rows to ESGAggregatedData objects
+            aggregated_data = []
+            for _, row in df.iterrows():
+                data_dict = row.to_dict()
+                aggregated_data.append(ESGAggregatedData.from_dict(data_dict))
+                
+            return aggregated_data
+        except Exception as e:
+            logger.error(f"Error getting aggregated ESG data: {str(e)}")
+            return []
+            
+    def get_compliance_summary(self) -> Dict[str, int]:
+        """Get a summary of compliance status
+        
+        Returns:
+            Dict[str, int]: Counts by compliance status
+        """
+        try:
+            return self.repository.get_compliance_summary()
+        except Exception as e:
+            logger.error(f"Error getting ESG compliance summary: {str(e)}")
+            return {} 
