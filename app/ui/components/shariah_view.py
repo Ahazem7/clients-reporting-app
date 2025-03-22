@@ -206,9 +206,6 @@ def render_shariah_aggregated_view(service: Optional[ShariahService] = None):
     # Convert to DataFrame for display
     df = pd.DataFrame([d.to_dict() for d in aggregated_data])
     
-    # Debug: Show available columns
-    st.sidebar.info(f"Debug - Available columns: {', '.join(df.columns)}")
-    
     # Add filters to sidebar
     filter_columns = ['client', 'universe', 'frequencies', 'sources']
     filtered_df = show_filter_sidebar(df, filter_columns, key_prefix="shariah_agg_view")
@@ -249,8 +246,6 @@ def render_shariah_aggregated_view(service: Optional[ShariahService] = None):
                 # Display chart
                 st.bar_chart(universe_df.set_index('client'))
             else:
-                st.info("Universe count data is not available in the aggregated view. Available columns: " + 
-                      ", ".join(df.columns))
+                st.info("Universe count data is not available.")
         except Exception as e:
-            st.error(f"Error displaying Universe Count chart: {str(e)}")
-            st.info("Exception details: " + str(e) + "\nDataFrame info: " + str(df.dtypes)) 
+            st.error("An error occurred while displaying the Universe Count chart.") 
