@@ -122,6 +122,7 @@ class ShariahService:
             sedol_count = int(shariah_data.get('sedol_count', 0) or 0)
             isin_count = int(shariah_data.get('isin_count', 0) or 0) 
             cusip_count = int(shariah_data.get('cusip_count', 0) or 0)
+            universe_count = int(shariah_data.get('universe_count', 0) or 0)
             
             conn = get_connection()
             cursor = conn.cursor()
@@ -132,9 +133,11 @@ class ShariahService:
             INSERT INTO shariah_datafeed (
                 client, fields, data_type, data_source, 
                 sedol_count, isin_count, cusip_count, compliance,
-                frequency, created_at, updated_at
+                frequency, current_source, after_migration, delivery_name,
+                universe, universe_count, migration_plan, 
+                created_at, updated_at
             ) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """
             
             cursor.execute(query, (
@@ -147,6 +150,12 @@ class ShariahService:
                 cusip_count,
                 shariah_data.get('compliance', ''),
                 shariah_data.get('frequency', ''),
+                shariah_data.get('current_source', ''),
+                shariah_data.get('after_migration', ''),
+                shariah_data.get('delivery_name', ''),
+                shariah_data.get('universe', ''),
+                universe_count,
+                shariah_data.get('migration_plan', ''),
                 now,
                 now
             ))
@@ -154,6 +163,9 @@ class ShariahService:
             conn.commit()
             record_id = cursor.lastrowid
             conn.close()
+            
+            # Log successful insertion
+            logger.info(f"Successfully added Shariah data for client '{shariah_data.get('client', '')}' with ID {record_id}")
             
             return record_id
         except Exception as e:

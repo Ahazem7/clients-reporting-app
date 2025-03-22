@@ -66,23 +66,26 @@ def render_inputs_page():
                 else:
                     try:
                         # Create ESG data object
-                        esg_data = ESGData(
-                            client=client,
-                            fields=fields,
-                            data_type=data_type if data_type else None,
-                            data_source=data_source if data_source else None,
-                            sedol_count=sedol_count,
-                            isin_count=isin_count,
-                            cusip_count=cusip_count,
-                            compliance=compliance
-                        )
+                        esg_data = {
+                            'client': client,
+                            'fields': fields,
+                            'data_type': data_type if data_type else '',
+                            'data_source': data_source if data_source else '',
+                            'sedol_count': sedol_count,
+                            'isin_count': isin_count,
+                            'cusip_count': cusip_count,
+                            'compliance': compliance
+                        }
                         
                         # Save to database
                         record_id = esg_service.add_esg_data(esg_data)
-                        st.success(f"ESG data saved successfully with ID: {record_id}")
                         
-                        # Clear form with empty placeholder
-                        st.experimental_rerun()
+                        if record_id > 0:
+                            st.success(f"ESG data saved successfully with ID: {record_id}")
+                            # Clear form with empty placeholder
+                            st.experimental_rerun()
+                        else:
+                            st.error("Error saving ESG data. Please check the logs for details.")
                     except Exception as e:
                         st.error(f"Error saving ESG data: {str(e)}")
                         logger.exception("Error saving ESG data")
@@ -132,27 +135,33 @@ def render_inputs_page():
                 else:
                     try:
                         # Create Shariah data object
-                        shariah_data = ShariahData(
-                            client=client,
-                            current_source=current_source if current_source else None,
-                            after_migration=after_migration if after_migration else None,
-                            delivery_name=delivery_name if delivery_name else None,
-                            fields=fields if fields else None,
-                            universe=universe if universe else None,
-                            universe_count=universe_count,
-                            frequency=frequency,
-                            migration_plan=migration_plan if migration_plan else None,
-                            sedol_count=sedol_count,
-                            isin_count=isin_count,
-                            cusip_count=cusip_count
-                        )
+                        shariah_data = {
+                            'client': client,
+                            'current_source': current_source if current_source else None,
+                            'after_migration': after_migration if after_migration else None,
+                            'delivery_name': delivery_name if delivery_name else None,
+                            'fields': fields if fields else None,
+                            'universe': universe if universe else None,
+                            'universe_count': universe_count,
+                            'frequency': frequency,
+                            'migration_plan': migration_plan if migration_plan else None,
+                            'sedol_count': sedol_count,
+                            'isin_count': isin_count,
+                            'cusip_count': cusip_count,
+                            'data_type': '',  # Pass empty string for data_type 
+                            'data_source': '',  # Pass empty string for data_source
+                            'compliance': 'N/A'  # Default compliance value
+                        }
                         
                         # Save to database
                         record_id = shariah_service.add_shariah_data(shariah_data)
-                        st.success(f"Shariah data saved successfully with ID: {record_id}")
                         
-                        # Clear form with empty placeholder
-                        st.experimental_rerun()
+                        if record_id > 0:
+                            st.success(f"Shariah data saved successfully with ID: {record_id}")
+                            # Clear form with empty placeholder
+                            st.experimental_rerun()
+                        else:
+                            st.error("Error saving Shariah data. Please check the logs for details.")
                     except Exception as e:
                         st.error(f"Error saving Shariah data: {str(e)}")
                         logger.exception("Error saving Shariah data")

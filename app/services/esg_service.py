@@ -153,6 +153,9 @@ class ESGService:
             record_id = cursor.lastrowid
             conn.close()
             
+            # Log successful insertion
+            logger.info(f"Successfully added ESG data for client '{esg_data.get('client', '')}' with ID {record_id}")
+            
             return record_id
         except Exception as e:
             logger.error(f"Error adding ESG data: {str(e)}")
