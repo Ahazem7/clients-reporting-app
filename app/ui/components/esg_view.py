@@ -121,10 +121,8 @@ def render_esg_data_view():
                 "Compliance",
                 width="medium",
                 options=[
-                    "Compliant",
-                    "Non-Compliant",
-                    "Partial",
-                    "Unknown"
+                    "Yes",
+                    "No"
                 ],
                 help="Compliance status"
             )

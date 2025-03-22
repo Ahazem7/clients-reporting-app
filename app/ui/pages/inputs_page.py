@@ -52,7 +52,7 @@ def render_inputs_page():
                 
             compliance = st.selectbox(
                 "Compliance",
-                options=["Yes", "No", "Partial"],
+                options=["Yes", "No"],
                 index=1,
                 help="Is this data compliant with requirements?"
             )
@@ -202,7 +202,7 @@ def render_inputs_page():
             - **SEDOL Count**: Number of securities with SEDOL identifiers
             - **ISIN Count**: Number of securities with ISIN identifiers
             - **CUSIP Count**: Number of securities with CUSIP identifiers
-            - **Compliance**: Whether the data is compliant (Yes/No/Partial)
+            - **Compliance**: Whether the data is compliant (Yes/No)
             """)
         
         # File upload
